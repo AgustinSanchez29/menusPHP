@@ -40,7 +40,7 @@
                             <br>
                         
   
-        <a href="maintain.php">Mantenimiento</a>
+       
 <?php include("include/footer.php");?>
 
 

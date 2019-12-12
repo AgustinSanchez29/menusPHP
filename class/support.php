@@ -20,6 +20,37 @@ if(isset($_POST['enviarFactura']))
 }
 
 
+if(isset($_POST['enviarUsuario'])){
+    $user=$_POST['user'];
+    $pass=$_POST['pass'];
+    $salt= substr($user,0,2);
+    $passCrypt=crypt($pass,$salt);
+    $obj= new todo();
+    $obj->crearUsuario($user,$passCrypt);
+}
+
+
+if(isset($_POST['validar'])){
+    $usser=$_POST['user'];
+    $pass=$_POST['pass'];
+    $salt= substr($usser,0,2);
+    $passCrypt=crypt($pass,$salt);
+    $obj= new todo();
+    $res=$obj->validarUsuario($usser,$passCrypt);
+    $resp= (int)$res;
+    if($resp>0){
+        session_start();
+        $_SESSION['usuario']=$usser;
+        header("Location:../maintain.php");
+    }
+    else{
+        echo"<h3>Usuario Invalido</h3>";
+        header( "refresh:5;url=../createFactura.php" );
+    }
+
+}
+
+
 
 
 

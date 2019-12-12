@@ -1,7 +1,7 @@
 <?php include("include/header.php");?>
 <div class="col-md-4 mt-5 mb-5">
 <div class="card border-primary">
-<div class="card-header bg-primary text-white">Formulario</div>
+<div class="card-header bg-primary text-white">Nueva compra</div>
 <div class="card-body">
 <form action="class/support.php" method="POST">
             <div class="form-group">
@@ -17,5 +17,5 @@
 <small id="emailHelp" class="form-text text-muted">Este formulario crea una nueva compra para usted.</small>
 </div>
 
-<a href="maintain.php">Mantenimiento</a>
+<a href="login.php" class="btn btn-info">Mantenimiento</a>
 <?php include("include/footer.php");?>

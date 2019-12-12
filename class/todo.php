@@ -125,30 +125,50 @@
 
 
 
-
-
-
-
-
-
-
-
-
-        public function consultaPrecio($id){
-            $v=(int)$id;
-            $query="CALL consultaPrecio('$v')";
+        public function crearUsuario($usuario,$pass){
+            $query="CALL crearUsuario('$usuario','$pass')";
             $consulta= $this->_db->query($query);
-            $resultado = $consulta->fetch_array(MYSQLI_NUM);
-            $valor=(int)$resultado[2];
-            if(isset($resultado)){
-                echo"kul";
-                return $valor;
+            var_dump($consulta);
+            if($consulta){
+                echo"usuario guardado";
+                $this->_db->close();
+
             }
             else{
-                echo "no kul";
+                echo"No se guardo el usuario";
             }
-
         }
+
+
+        public function validarUsuario($usuario,$pass){
+            var_dump($usuario);
+            var_dump($pass);
+            $query="CALL validarUsuario('$usuario','$pass')";
+            $consulta= $this->_db->query($query);
+            var_dump($consulta);
+            $resultado = $consulta->fetch_array(MYSQLI_NUM);  
+            $res=$resultado[0];
+            var_dump($res);
+            if($resultado){
+                return $res;
+                $resultado->close();
+                $this->_db->close();
+            }
+            else{
+                echo"No se encuentran registros";
+                header( "refresh:5;url=../createFactura.php" );
+            }
+        }
+
+
+
+
+
+
+
+
+
+       
 
 
 

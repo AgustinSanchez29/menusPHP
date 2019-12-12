@@ -1,11 +1,17 @@
 <?php include("class/todo.php");
 include("include/header.php");
 $obj2= new Todo();
+session_start();
+if(!isset($_SESSION['usuario'])){
+    echo"<h2>Este usuario no es valido por favor iniciar sesion</h2>";
+    header( "refresh:5;url=../login.php" );
+}
+else{
 ?>
 
 <br>
-   
-    <div class="col-md-6 mt-1">
+  <div class="row">
+<div class="col-md-6 mt-1">
 <div class="card">
 <div class="card-header">Agregar nuevo menu</div>
 <div class="card-body">
@@ -25,8 +31,24 @@ $obj2= new Todo();
 </div>
 </div>
 
+<div class="col-md-6 mt-1">
+<div class="card border-primary">
+<div class="card-header bg-primary text-white">Nuevo usuario</div>
+<div class="card-body">
+<form action="class/support.php" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" name="user" placeholder="usuario" REQUIRED>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="pass" placeholder="contraseña" REQUIRED>
+            </div>
+                <input type="submit" class="btn btn-primary" name="enviarUsuario" value="enviar">
+</form>
+</div>
+</div>
+</div>
+  </div> 
 
-    <br>
     <br>
 
 
@@ -56,4 +78,6 @@ $obj2= new Todo();
             </tbody>
         </table>
         
-<?php include("include/footer.php")?>
+<?php 
+}
+include("include/footer.php")?>

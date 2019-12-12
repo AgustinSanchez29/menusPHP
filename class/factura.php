@@ -1,5 +1,6 @@
 <?php
 include("todo.php");
+include("../include/header.php");
 
     if(isset($_POST['enviarCompra'])){
         $obj= new Todo();
@@ -20,13 +21,21 @@ include("todo.php");
             $idM= (int)$idM;
             $obj2->insertarVenta($id,$idM);
         }
-        $total=$obj3->calcularTotal($id);
-        echo "<h1>Cliente: ".$cliente."</h1><br>";
-        echo "<h1>Correo: ".$correo."</h1><br>";        
-        echo "<h1>Su total a pagar es de: ".$total."$</h1><br>";
+        $total=$obj3->calcularTotal($id);?>
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                    Factura
+            </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><?php echo $cliente;?></li>
+            <li class="list-group-item"><?php echo $correo;?></li>
+            <li class="list-group-item"><?php echo $total;?></li>
+        </ul>
+        </div>
+        <?php
         header( "refresh:5;url=../createFactura.php" );
 
     }    
 
-
+    include("../include/footer.php");
 ?>
