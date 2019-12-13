@@ -27,6 +27,7 @@ if(isset($_POST['enviarUsuario'])){
     $passCrypt=crypt($pass,$salt);
     $obj= new todo();
     $obj->crearUsuario($user,$passCrypt);
+    header("Location:../maintain.php");
 }
 
 

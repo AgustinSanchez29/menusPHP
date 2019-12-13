@@ -36,10 +36,10 @@ else{
 <div class="card-body">
 <form action="class/support.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
-        <input type="text" placeholder="Descripcion del menu" name="menu">
+        <input type="text" placeholder="Descripcion del menu" name="menu" REQUIRED>
         </div>
         <div class="form-group">
-        <input type="num" class="form-control" placeholder="Coste" name="precio">
+        <input type="num" class="form-control" placeholder="Coste" name="precio" REQUIRED>
         </div>
         <div class="form-group">
         <input type="file" name="imagen" REQUIRED>

@@ -20,5 +20,5 @@
 </div>
 <small id="emailHelp" class="form-text text-muted">Ingresa tu usuario de administrador.</small>
 </div>
-
+<a href="createFactura.php" class="btn btn-info">Regresar</a>
 <?php include("include/footer.php");?>
