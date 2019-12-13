@@ -1,6 +1,6 @@
 <?php
-session_start();
-include("class/todo.php");?>
+include("class/todo.php");
+session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +14,16 @@ include("class/todo.php");?>
 <body>
 <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-        <a href="createFactura.php" class="navbar-brand">Log out</a>
+        <a href="logout.php" class="navbar-brand">Log out</a>
     </div>
 </nav>
     <div class="container">
 <?php
+//$usu=$_SESSION['usuario'];
 $obj2= new Todo();
 if(!isset($_SESSION['usuario'])){
     echo"<h2>Este usuario no es valido por favor iniciar sesion</h2>";
-    header( "refresh:5;url=../login.php" );
+    header( "refresh:5;url=login.php" );
 }
 else{
 ?>
