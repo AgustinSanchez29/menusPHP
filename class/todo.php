@@ -77,49 +77,49 @@
             $query= "CALL ultimaFactura";
             $consulta= $this->_db->query($query);
             $resultado = $consulta->fetch_array(MYSQLI_NUM);
-            echo"desde la funcion= ";
-            var_dump($resultado);
+            //echo"desde la funcion= ";
+            //var_dump($resultado);
             $res= $resultado[0];//esto solo era para recuperar el id de la ultima factura
             if(isset($resultado)){
-                echo"kul";
+                //echo"kul";
                 return $resultado;
             }
             else{
-                echo "no kul";
+               // echo "no kul";
             }
            
         }
 
 
         public function insertarVenta($idFactura,$idMenu){
-            var_dump($idFactura);
+            //var_dump($idFactura);
             $query="CALL insertarVenta($idFactura,$idMenu)";
             $consulta= $this->_db->query($query);
-            echo"Desde insertarVenta";
-            var_dump($consulta);
+            //echo"Desde insertarVenta";
+            //var_dump($consulta);
             if($consulta){
-                echo "venta guardada";
+                //echo "venta guardada";
                 //$this->_db->close();
             }
             else{
-                echo "no se guardo la venta";
+                //echo "no se guardo la venta";
             }
         }
 
         public function calcularTotal($idFactura)
         {
-            var_dump($idFactura);
+            //var_dump($idFactura);
             $query="CALL calcularTotal($idFactura)";
             $consulta= $this->_db->query($query);
             $resultado = $consulta->fetch_array(MYSQLI_NUM);            
             $res= $resultado[0];
-            var_dump($res);
+            //var_dump($res);
             if(isset($resultado)){
-                echo"kul";
+                //echo"kul";
                 return $res;
             }
             else{
-                echo "no kul";
+                //echo "no kul";
             }
         }
 
@@ -128,14 +128,14 @@
         public function crearUsuario($usuario,$pass){
             $query="CALL crearUsuario('$usuario','$pass')";
             $consulta= $this->_db->query($query);
-            var_dump($consulta);
+            //var_dump($consulta);
             if($consulta){
-                echo"usuario guardado";
+                //echo"usuario guardado";
                 $this->_db->close();
 
             }
             else{
-                echo"No se guardo el usuario";
+               // echo"No se guardo el usuario";
             }
         }
 

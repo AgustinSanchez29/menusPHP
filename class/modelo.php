@@ -9,7 +9,7 @@ class modeloCredencialesBD{
             return;
         }
         else{
-            echo "Kul io";
+            //echo "Kul io";
         }
     }
 

@@ -18,7 +18,7 @@ if(isset($_POST['enviarFactura']))
     $obj->insertarFactura($nombre,$correo);
     header("Location:../inicio.php");
 }
-
+ 
 
 if(isset($_POST['enviarUsuario'])){
     $user=$_POST['user'];
@@ -31,6 +31,7 @@ if(isset($_POST['enviarUsuario'])){
 
 
 if(isset($_POST['validar'])){
+    session_start();
     $usser=$_POST['user'];
     $pass=$_POST['pass'];
     $salt= substr($usser,0,2);
@@ -39,7 +40,6 @@ if(isset($_POST['validar'])){
     $res=$obj->validarUsuario($usser,$passCrypt);
     $resp= (int)$res;
     if($resp>0){
-        session_start();
         $_SESSION['usuario']=$usser;
         header("Location:../maintain.php");
     }
